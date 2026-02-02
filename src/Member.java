@@ -9,23 +9,21 @@ public class Member {
     public Member (String name, Gym gym) {
         this. name = name;
         this.gym = gym;
-        int id = gym.members.size() + 1;
-        this.id = id;}
+        this.id = 0;}
     public void bookSession(Trainer t) {
-        int id = gym.sessions.size() + 1;
-        Session session = new Session (id, this, t, Status.created);
-        int sessionActionId = session.actions.size() +1;
+        Session session = new Session (this, t);
+        session.id = gym.addSession(session);
+
         double b = Math.random();
-        SessionAction sa = new SessionAction(sessionActionId, b, Action.memberCreated );
-        session.actions.add(sa);
+        SessionAction sa = new SessionAction(b, Action.memberCreated );
+       session.addAction(sa);
+
         sessions.add(session);
-        gym.sessions.add(session);
     };
     public void cancelSession(int id) {
         Session s = gym.getSessionById(id);
-        int sessionActionId = s.actions.size() +1;
         double t = Math.random();
-        SessionAction sa = new SessionAction(sessionActionId, t, Action.memberCancelled );
+        SessionAction sa = new SessionAction(t, Action.memberCancelled );
         s.changeStatus(Status.cancelledByMember, sa);
     };
     public int getId() {

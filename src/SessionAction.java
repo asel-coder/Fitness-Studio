@@ -3,10 +3,10 @@ public class SessionAction {
 
     double time;
     Action action;
-    public SessionAction (int id, double time, Action action) {
+    public SessionAction (double time, Action action) {
         this. time = time;
         this. action = action;
-        this.id = id;}
+        this.id = 0;}
     @Override
     public String toString() {
         return "SessionAction {id=" + id + ", action='" + action + "'}";

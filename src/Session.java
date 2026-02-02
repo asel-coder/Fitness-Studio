@@ -7,22 +7,25 @@ public class Session {
     Trainer trainer;
     Status Status;
     List<SessionAction> actions = new ArrayList<>();
-    public Session (int id, Member Member, Trainer Trainer, Status Status) {
+    public Session (Member Member, Trainer Trainer) {
         this.member = Member;
-        this.id = id;
+        this.id = 0;
         this.trainer = Trainer;
-        this.Status = Status;
+        this.Status = Status.created;
     };
     public void changeStatus (Status Status, SessionAction sa1) {
         this.Status = Status;
         actions.add(sa1);
     };
-    public int getId() {
+    public int addAction (SessionAction a) {
+        int id = actions.size() + 1;
+        a.id = id;
+        actions.add(a);
         return id;
     }
-    public Status getStatus() {
-        return Status;
-    }
+
+
+
     public List<SessionAction> getActions() {
         return new ArrayList<>(actions);
     };

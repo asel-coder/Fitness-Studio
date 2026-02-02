@@ -12,13 +12,29 @@ public class Gym {
         this.trainers = new ArrayList<>();
     }
 
-    public void registerMember (String name) {
+    public Member registerMember (String name) {
         Member m = new Member(name, this);
+        int id = members.size() + 1;
+        m.id = id;
         members.add(m);
+        return m;
+    }
+    public Trainer registerTrainer (String name) {
+        Trainer m = new Trainer(name, this);
+        int id = trainers.size() + 1;
+        m.id = id;
+        trainers.add(m);
+        return m;
+    }
+    public int addSession (Session s) {
+        int id = sessions.size() + 1;
+        s.id = id;
+        sessions.add(s);
+        return id;
     }
     public Session getSessionById(int id) {
         for (Session session : sessions) {
-            if (session.getId() == id) {
+            if (session.id == id) {
                 return session;
             }
         }

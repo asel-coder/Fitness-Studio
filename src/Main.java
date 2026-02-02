@@ -2,14 +2,15 @@ import java.util.List;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
-     Gym g = new Gym();
+        Gym g = new Gym();
      g.registerMember("Bob");
         g.registerMember("Alice");
         g.registerMember("Asel");
      List<Member> a = g.getMembers();
      /*System.out.println(a);*/
-        Trainer t1 = new Trainer(1, "Carl");
+        Trainer t1 = g.registerTrainer ("Carl");
         Member best = g.getMemberById(3);
         best.bookSession(t1);
         best.bookSession(t1);
