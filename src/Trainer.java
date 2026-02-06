@@ -9,7 +9,7 @@ public class Trainer {
     public Trainer (String name, Gym gym) {
         this.gym = gym;
     this. name = name;
-        this.id = 0;
+
     }
 
 

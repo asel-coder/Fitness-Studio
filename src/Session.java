@@ -9,7 +9,7 @@ public class Session {
     List<SessionAction> actions = new ArrayList<>();
     public Session (Member Member, Trainer Trainer) {
         this.member = Member;
-        this.id = 0;
+
         this.trainer = Trainer;
         this.Status = Status.created;
     };

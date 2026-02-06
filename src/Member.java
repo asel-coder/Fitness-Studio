@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
-    Gym gym;
+
     int id;
     String name;
     List<Session> sessions = new ArrayList<>();
-    public Member (String name, Gym gym) {
+    public Member (String name ) {
         this. name = name;
-        this.gym = gym;
-        this.id = 0;}
+        this.id = 0;
+       }
     public void bookSession(Trainer t) {
         Session session = new Session (this, t);
-        session.id = gym.addSession(session);
+
 
         double b = Math.random();
         SessionAction sa = new SessionAction(b, Action.memberCreated );
@@ -20,15 +20,13 @@ public class Member {
 
         sessions.add(session);
     };
-    public void cancelSession(int id) {
+    /*public void cancelSession(int id) {
         Session s = gym.getSessionById(id);
         double t = Math.random();
         SessionAction sa = new SessionAction(t, Action.memberCancelled );
         s.changeStatus(Status.cancelledByMember, sa);
-    };
-    public int getId() {
-        return id;
-    }
+    };*/
+
 
     public List<Session> getSessions() {
         return new ArrayList<>(sessions);
@@ -37,5 +35,18 @@ public class Member {
     public String toString() {
         return "Member{id=" + id + ", name='" + name + "'}";
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
 
 }

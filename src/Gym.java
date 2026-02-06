@@ -13,10 +13,10 @@ public class Gym {
     }
 
     public Member registerMember (String name) {
-        Member m = new Member(name, this);
-        int id = members.size() + 1;
-        m.id = id;
-        members.add(m);
+        Member m = new Member(name);
+
+
+
         return m;
     }
     public Trainer registerTrainer (String name) {
